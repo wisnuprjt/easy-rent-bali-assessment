@@ -1,0 +1,29 @@
+{
+  "name": "easy-rent-bali-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Easy Rent Bali technical assessment - Option C",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:concurrency": "tsx src/patch/test_concurrency.ts",
+    "fleet:triage": "tsx src/engine/triage_engine.ts",
+    "fleet:dispatch": "tsx src/engine/dispatcher.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

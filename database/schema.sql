@@ -1,0 +1,43 @@
+CREATE DATABASE IF NOT EXISTS easy_rent_bali
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE easy_rent_bali;
+
+CREATE TABLE IF NOT EXISTS vehicles (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  plate_number VARCHAR(20) NOT NULL,
+  status ENUM('AVAILABLE','RENTED','MAINTENANCE') NOT NULL DEFAULT 'AVAILABLE',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_vehicles_plate (plate_number)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS vehicle_reservations (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  booking_id VARCHAR(80) NOT NULL,
+  vehicle_id BIGINT UNSIGNED NOT NULL,
+  customer_id BIGINT UNSIGNED NOT NULL,
+  status ENUM('CONFIRMED','CANCELLED') NOT NULL DEFAULT 'CONFIRMED',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_reservations_booking (booking_id),
+  KEY idx_reservations_vehicle (vehicle_id),
+  CONSTRAINT fk_reservations_vehicle FOREIGN KEY (vehicle_id) REFERENCES vehicles(id)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS idempotency_records (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  idempotency_key VARCHAR(120) NOT NULL,
+  request_hash VARCHAR(255) NOT NULL,
+  status ENUM('PROCESSING','COMPLETED','FAILED') NOT NULL DEFAULT 'PROCESSING',
+  response_json JSON NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_idempotency_key (idempotency_key)
+) ENGINE=InnoDB;
+
+-- Dedicated local test vehicle for test:concurrency
+INSERT INTO vehicles (id, plate_number, status)
+VALUES (9001, 'ASSESSMENT-TEST-9001', 'AVAILABLE')
+ON DUPLICATE KEY UPDATE plate_number=VALUES(plate_number);

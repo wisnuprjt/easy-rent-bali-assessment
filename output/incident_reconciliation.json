@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-11-21T06:33:28.723Z",
+  "source": "data/outage_telemetry.json",
+  "incident_count": 6,
+  "incidents": [
+    {
+      "vehicle_id": "iot_car_02",
+      "plate_number": "DK 5678 CD",
+      "type": "CRITICAL_SECURITY_ALERT",
+      "severity": "CRITICAL",
+      "reason": "Vehicle marked AVAILABLE is moving at 52 km/h",
+      "recommended_action": "Contact field operations immediately; verify vehicle status and location.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    },
+    {
+      "vehicle_id": "iot_car_03",
+      "plate_number": "DK 9012 EF",
+      "type": "MAINTENANCE_REQUIRED",
+      "severity": "MEDIUM",
+      "reason": "Battery voltage is low (11.2V)",
+      "recommended_action": "Schedule maintenance before the next dispatch: inspect and recharge or replace the battery.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    },
+    {
+      "vehicle_id": "iot_car_04",
+      "plate_number": "DK 3456 GH",
+      "type": "MAINTENANCE_REQUIRED",
+      "severity": "MEDIUM",
+      "reason": "Fuel level is low (9%)",
+      "recommended_action": "Schedule maintenance before the next dispatch: refuel the vehicle.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    },
+    {
+      "vehicle_id": "iot_car_05",
+      "plate_number": "DK 7890 IJ",
+      "type": "CRITICAL_SECURITY_ALERT",
+      "severity": "CRITICAL",
+      "reason": "Vehicle is located in restricted zone RESTRICTED_OFFROAD_BATUKARU",
+      "recommended_action": "Contact field operations immediately; verify vehicle status and location.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    },
+    {
+      "vehicle_id": "iot_car_06",
+      "plate_number": "DK 2345 KL",
+      "type": "OFFLINE_TELEMETRY_DROP",
+      "severity": "HIGH",
+      "reason": "Rented vehicle telemetry has been silent for 22 minutes.",
+      "recommended_action": "Check tracker connectivity and contact renter if required.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    },
+    {
+      "vehicle_id": "iot_car_08",
+      "plate_number": "DK 4567 OP",
+      "type": "MAINTENANCE_REQUIRED",
+      "severity": "MEDIUM",
+      "reason": "Battery voltage is low (11.3V); Fuel level is low (11%)",
+      "recommended_action": "Schedule maintenance before the next dispatch: inspect and recharge or replace the battery and refuel the vehicle.",
+      "detected_at": "2026-11-21T06:33:28.720Z"
+    }
+  ]
+}

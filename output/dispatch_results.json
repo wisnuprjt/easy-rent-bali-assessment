@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-11-21T06:33:29.702Z",
+  "dispatch_mode": "SIMULATED",
+  "dispatch_count": 6,
+  "successful": 6,
+  "failed": 0,
+  "results": [
+    {
+      "vehicle_id": "iot_car_02",
+      "type": "CRITICAL_SECURITY_ALERT",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    },
+    {
+      "vehicle_id": "iot_car_03",
+      "type": "MAINTENANCE_REQUIRED",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    },
+    {
+      "vehicle_id": "iot_car_04",
+      "type": "MAINTENANCE_REQUIRED",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    },
+    {
+      "vehicle_id": "iot_car_05",
+      "type": "CRITICAL_SECURITY_ALERT",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    },
+    {
+      "vehicle_id": "iot_car_06",
+      "type": "OFFLINE_TELEMETRY_DROP",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    },
+    {
+      "vehicle_id": "iot_car_08",
+      "type": "MAINTENANCE_REQUIRED",
+      "delivered": true,
+      "attempts": 1,
+      "channel": "SIMULATED_DISPATCH"
+    }
+  ]
+}
